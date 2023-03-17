@@ -4,6 +4,7 @@
  * main - prints all posible combinations of the single-digit numbers
  * Return: Always 0 (Success)
  */
+int main(void)
 {
 	int n;
 
