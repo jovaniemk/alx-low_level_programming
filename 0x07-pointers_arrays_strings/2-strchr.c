@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _stchr - Entry point
+ * _strchr - Entry point
  * @s: input
  * @c: iput
  * Return: Always 0 (Success)
