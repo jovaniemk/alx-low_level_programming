@@ -7,7 +7,7 @@
  * Return: pointers to the beginning of the substring
  *
  */
-char *_strstr(char *haystack, char *needle)
+void print_chessboard(char (*A)[8])
 {
 	for (; *haystack != '\0'; haystack++)
 	{
