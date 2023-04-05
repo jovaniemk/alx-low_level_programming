@@ -2,7 +2,7 @@
 
 /**
  * find_sqrt_helper -helper function,recursively find square root of a number
- * @num: the number to find the square root of 
+ * @num: the number to find the square root of
  * @presumption: the current presumption for the square root
  *
  * Return: the square root of the namber,
