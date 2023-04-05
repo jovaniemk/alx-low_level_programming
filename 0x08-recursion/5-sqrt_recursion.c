@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * find_sqrt_helper -helper function,recursively find square root of a number
+ * find_sqrt_helper - helper function,recursively find square root of a number
  * @num: the number to find the square root of
  * @presumption: the current presumption for the square root
  *
@@ -35,7 +35,7 @@ int _sqrt_recursion(int n)
 {
 	if (n < 0)
 	{
-		return (1);
+		return (-1);
 	}
 	else if (n == 0 || n == 1)
 	{
