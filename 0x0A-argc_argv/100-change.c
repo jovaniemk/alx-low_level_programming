@@ -5,21 +5,19 @@
  * main - prints the minimum number of coins to
  * make change for an amount of money
  * @argc: number of arguments
- * @argv: number of arguments
- *
- * Return: array of arguments
+ * @argv: array of arguments
  *
  * Return: 0 (Success), 1 (Error)
  */
 int main(int argc, char *argv[])
 {
-	ing num, j results;
+	int num, j, result;
 	int coins[] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
 
 	{
-		printf("Errot\n");
+		printf("Error\n");
 		return (1);
 	}
 
