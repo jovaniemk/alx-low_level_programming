@@ -20,9 +20,9 @@ char *_strncat(char *dest, char *src, int n)
 		i++;
 	}
 	j = 0;
-	while (j < n && src [j] != '\0')
+	while (j < n && src[j] != '\0')
 	{
-		dest[i] =src[j];
+		dest[i] = src[j];
 		i++;
 		j++;
 	}
