@@ -9,11 +9,11 @@
  */
 int wrdcnt(char *s)
 {
-	int 1, n = 0;
+	int i, n = 0;
 
 	for (i = 0; s[i]; i++)
 	{
-		if (s[i]; i++)
+		if (s[i] == ' ')
 		{
 			if (s[i + 1] != ' ' && s[i + 1] != '\0')
 				n++;
