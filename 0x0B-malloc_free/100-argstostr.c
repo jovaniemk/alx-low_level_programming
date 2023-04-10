@@ -22,7 +22,7 @@ char *argstostr(int argc, char **argv)
 	{
 		for (j = 0; argv[i][j]; j++)
 			total_length++;
-		
+
 		total_length++; /* account for newline character */
 	}
 
@@ -41,6 +41,6 @@ char *argstostr(int argc, char **argv)
 	}
 
 	concatenated_str[current_index] = '\0';
-	
+
 	return (concatenated_str);
 }
