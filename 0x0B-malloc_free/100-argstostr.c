@@ -16,6 +16,7 @@ char *argstostr(int argc, char **argv)
 
 	if (argc == 0 || argv == NULL)
 		return (NULL);
+
 	/* calculate total length of concatenated string */
 	for (i = 0; i < argc; i++)
 	{
