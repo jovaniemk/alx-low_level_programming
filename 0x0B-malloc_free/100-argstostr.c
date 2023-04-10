@@ -34,10 +34,11 @@ char *argstostr(int argc, char **argv)
 	for (i = 0; i < argc; i++)
 	{
 		for (j = 0; argv[i][j]; j++)
-			concatenated_str[current_index] = '\n';
-		
+			concatenated_str[current_index++] = argv[i][j];
+
 		concatenated_str[current_index++] = '\n';
 	}
+
 	concatenated_str[current_index] = '\0';
 	
 	return (concatenated_str);
