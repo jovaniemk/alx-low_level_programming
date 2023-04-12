@@ -4,10 +4,9 @@
 #include <stddef.h>
 
 /**
- * malloc_checked -Allocates memory
- * @b: The size to allocate
- *
- * Return: Nothing.
+ * malloc_checked - Entry point
+ * @b: input amount
+ * Return: pointer to new mem
  */
 void *malloc_checked(unsigned int b)
 {
