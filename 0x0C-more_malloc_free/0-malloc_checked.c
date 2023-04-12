@@ -1,7 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
-#include <stddef.h>
 
 /**
  * malloc_checked - Entry point
@@ -10,12 +8,10 @@
  */
 void *malloc_checked(unsigned int b)
 {
-	void *p;
+	void *mem = malloc(b);
 
-	p = malloc(b);
-
-	if (p == NULL)
+	if (mem == NULL)
 		exit(98);
 
-	return (p);
+	return (mem);
 }
