@@ -6,7 +6,7 @@
  * main - Entry point
  * @argc: NUmber of arguments
  * @argv: Pointer to an array containing the parameters
- * @Return: Always zero
+ * Return: Always zero
  */
 int main(int argc, char **argv)
 {
