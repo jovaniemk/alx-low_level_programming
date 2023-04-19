@@ -32,8 +32,8 @@ int main(int argc, char *argv[])
 
 		if (i == num_bytes - 1)
 			continue;
-		printf(" ")
-			ptr++;
+		printf(" ");
+		ptr++;
 	}
 	printf("\n");
 	return (0);
