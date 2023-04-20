@@ -34,8 +34,8 @@ int main(int argc, char **argv)
 	fun = get_op_func(s);
 	if (fun == NULL)
 	{
-		printf(Error\n);
-		exit(99)
+		printf("Error\n");
+		exit(99);
 	}
 
 	printf("%d\n", fun(a, b));
