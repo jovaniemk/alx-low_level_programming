@@ -11,7 +11,7 @@
  * list node structure project
  * an alx/holberton software engineering project
  */
-typedef struct list_S
+typedef struct list_s
 {
 	char *str;
 	unsigned int len;
