@@ -1,7 +1,7 @@
 #ifndef LISTS_H
 #define LISTS_H
 
-/***
+/**
  * struct list_s - singly linked list
  * @str: string - (this is the malloc'ed string)
  * @len: is the length of the string
