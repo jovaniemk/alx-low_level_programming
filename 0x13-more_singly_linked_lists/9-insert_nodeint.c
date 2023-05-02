@@ -35,10 +35,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	listint_t *new, *pre, *now;
 
 	if (idx == 0)
-		return (add_nodeint(head));
+		return (add_nodeint(head, n));
 	pre = NULL;
 	now = *head;
-	for (j = 0; now && j < idk; j++)
+	for (j = 0; now && j < idx; j++)
 	{
 		pre = now;
 		now = now->next;
