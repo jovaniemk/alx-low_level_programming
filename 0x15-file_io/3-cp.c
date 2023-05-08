@@ -2,7 +2,7 @@
 
 void _close(char **BUF, int *fdl, int *fd2);
 /**
- * main - main function that copies the the content of
+ * main - main function that copies the content of
  * a file into another
  * @argc: argument counter
  * @argv: array of arguments
@@ -16,11 +16,11 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprint(STDOUT_FILENO, "usage: cp file_form file_to\n");
+		dprint(STDOUT_FILENO, "Usage: cp file_form file_to\n");
 		exit(97);
 	}
 	fd_form = open(argv[1], O_RDONLY);
-	if (fd_form == -2)
+	if (fd_form == -1)
 	{
 		dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
