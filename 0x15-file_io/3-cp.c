@@ -1,71 +1,81 @@
 #include "main.h"
-#include <stdio.h>
 
+void _close(char **BUF, int *fd1, int *fd2);
 /**
- * error_file - checks if files can be opened
- * @file_from: file_from.
- * @file_to: file_to.
- * @argv: arguments vector.
- * Return: no return.
- */
-void error_file(int file_from, int file_to, char *argv[])
-{
-	if (file_form == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
-	if (file_to == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
-	}
-}
-
-/**
- * main - check the code for Holberton school students.
- * @argc: number of arguments.
- * @argv: arguments vector.
- * Return: Always 0.
+ * main - main function that copies the content of
+ * a file into another
+ * @argc: argument counter
+ * @argv: array of arguments
+ * Return: 0 on success
  */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, err_close;
-	ssize_t nchars, nwr;
-	char buf[1024];
+	int fd_from, fd_to, *fd1 = &fd_from, *fd2 = &fd_to;
+	int j, i, n = 0;
+	char *buf, **BUF = &buf;
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
+		dprintf(STDOUT_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-
-	file_from = open(argv[1], O_RDONLY);
-	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
-	error_file(file_from, file_to, argv);
-
-	nchars = 1024;
-	while (nchars == 1024)
+	fd_from = open(argv[1], O_RDONLY);
+	if (fd_from == -1)
 	{
-		nchars = read(file_from, buf, 1024);
-		if (nchars == -1)
-			error_file(-1, 0, argv);
-		nwr = write(file_to, buf, nchars);
-		if (nwr == -1)
-			error_file(0, -1, argv);
+		dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
 	}
-
-	err_close = close(file_from);
-	if (err_close == -1)
+	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (fd_to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
+	}
+	buf = malloc(sizeof(char) * 1024);
+	if (!buf)
+		return (-1);
+
+	do {
+		i = read(fd_from, buf, 1024);
+		if (i == -1)
+		{
+			dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
+		}
+		j = write(fd_to, buf, i);
+		if (j != i)
+		{
+			dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", argv[2]);
+			exit(99);
+		}
+		n++;
+	} while (i == 1024);
+	_close(BUF, fd1, fd2);
+
+	return (0);
+}
+/**
+ * _close - closes opened files and frees malloc
+ * @BUF: pointer to a buffer
+ * @fd1: pointer to the first file
+ * @fd2: pointer to the second file
+ *
+ */
+void _close(char **BUF, int *fd1, int *fd2)
+{
+	int n, m;
+
+	free(*BUF);
+	n = close(*fd1);
+	if (n == -1)
+	{
+		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n", *fd1);
 		exit(100);
 	}
-	err_close = close(file_to);
-        if (err_close == -1)
-        {
-                dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
-                exit(100);
+	m = close(*fd2);
+	if (m == -1)
+	{
+		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n", *fd2);
+		exit(100);
 	}
-	return (0);
 }
